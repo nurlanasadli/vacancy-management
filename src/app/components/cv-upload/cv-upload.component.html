@@ -1,0 +1,22 @@
+<nz-upload
+  [nzBeforeUpload]="beforeUpload"
+  [nzFileList]="fileList"
+  [nzShowUploadList]="true"
+  nzAccept=".pdf,.docx"
+  [nzDisabled]="uploading"
+>
+  <button nz-button>
+    <i nz-icon nzType="upload"></i> Fayl seçin
+  </button>
+</nz-upload>
+
+<button
+  nz-button
+  nzType="primary"
+  [nzLoading]="uploading"
+  (click)="handleUpload()"
+  style="margin-top: 16px"
+>
+  CV-ni Yüklə
+</button>
+    

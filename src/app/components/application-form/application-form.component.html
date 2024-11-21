@@ -1,0 +1,32 @@
+<form nz-form [formGroup]="applicationForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzRequired>Adı və Soyadı</nz-form-label>
+      <nz-form-control [nzSm]="14" nzErrorTip="Bu sahə məcburidir">
+        <input nz-input formControlName="name" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzRequired>Elektron poçt ünvanı</nz-form-label>
+      <nz-form-control
+        [nzSm]="14"
+        nzErrorTip="Düzgün e-poçt ünvanı daxil edin"
+      >
+        <input nz-input formControlName="email" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" nzRequired>Telefon nömrəsi</nz-form-label>
+      <nz-form-control [nzSm]="14" nzErrorTip="Bu sahə məcburidir">
+        <input nz-input formControlName="phone" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Müraciət et</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  
