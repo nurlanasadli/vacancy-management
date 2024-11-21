@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { CommonModule } from '@angular/common'; 
 import { TestService } from '../../services/test.service';
 import { TestQuestion } from '../../models/test-question.model';
 import { CandidateService } from '../../services/candidate.service';

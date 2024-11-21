@@ -5,13 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ReactiveFormsModule } from '@angular/forms'; // Import this
 
 @Component({
   selector: 'app-application-form',
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css'],
   standalone: true,
-  imports: [NzFormModule, NzInputModule, NzButtonModule],
+  imports: [NzFormModule, NzInputModule, NzButtonModule, ReactiveFormsModule],
 })
 export class ApplicationFormComponent implements OnInit {
   applicationForm!: FormGroup;
