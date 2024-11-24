@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { TestService } from '../../services/test.service';
 import { TestQuestion } from '../../models/test-question.model';
 import { CandidateService } from '../../services/candidate.service';
@@ -9,11 +9,13 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-test-questions',
+  standalone: true,
+  imports: [CommonModule, NzButtonModule],
   templateUrl: './test-questions.component.html',
   styleUrls: ['./test-questions.component.css'],
-  standalone: true, // Mark as standalone
-  imports: [CommonModule, NzButtonModule], // Add CommonModule
 })
+
+
 export class TestQuestionsComponent implements OnInit {
   questions: TestQuestion[] = [];
   currentQuestionIndex: number = 0;
@@ -21,7 +23,7 @@ export class TestQuestionsComponent implements OnInit {
   selectedOptionIndex: number | null = null;
   timeLeft: number = 60;
   timerSubscription!: Subscription;
-  totalTimeLeft: number;
+  totalTimeLeft: number = 0;
   vacancyId!: number;
 
   constructor(
@@ -29,16 +31,32 @@ export class TestQuestionsComponent implements OnInit {
     private candidateService: CandidateService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    this.questions = this.testService.getTestQuestions();
-    this.totalTimeLeft = this.questions.length * 60;
-  }
+  ) {}
 
   ngOnInit(): void {
     this.vacancyId = +this.route.snapshot.paramMap.get('id')!;
+    this.questions = this.testService.getTestQuestions(this.vacancyId);
+    this.totalTimeLeft = this.questions.length * 60;
     this.startTest();
     window.addEventListener('beforeunload', this.beforeUnloadListener);
   }
+
+  beforeUnloadListener = (event: BeforeUnloadEvent): void => {
+    event.preventDefault();
+    event.returnValue = '';
+  };
+
+  startTimer(): void {
+    this.timerSubscription = interval(1000).subscribe(() => {
+      this.timeLeft--;
+      this.totalTimeLeft--;
+      if (this.timeLeft === 0) {
+        this.submitAnswer();
+      }
+    });
+  }
+  
+  
 
   startTest() {
     if (!this.candidateService.getCandidate()) {
@@ -49,29 +67,23 @@ export class TestQuestionsComponent implements OnInit {
     this.startTimer();
   }
 
-  startTimer() {
-    this.timerSubscription = interval(1000).subscribe(() => {
-      this.timeLeft--;
-      this.totalTimeLeft--;
-      if (this.timeLeft === 0 || this.totalTimeLeft === 0) {
-        this.submitAnswer();
-      }
-    });
-  }
+  selectOption(index: number): void {
+    this.selectedOptionIndex = index;
+  }  
 
-  submitAnswer() {
+  submitAnswer(): void {
     if (this.selectedOptionIndex !== null) {
       const candidate = this.candidateService.getCandidate();
       if (candidate) {
         candidate.answers[this.currentQuestion.id] = this.selectedOptionIndex;
-        this.candidateService.setCandidate(candidate);
+        this.candidateService.setCandidate(candidate, this.vacancyId);
       }
     }
-
+  
     this.selectedOptionIndex = null;
     this.timeLeft = 60;
     this.currentQuestionIndex++;
-
+  
     if (this.currentQuestionIndex < this.questions.length) {
       this.currentQuestion = this.questions[this.currentQuestionIndex];
     } else {
@@ -81,21 +93,5 @@ export class TestQuestionsComponent implements OnInit {
       );
       this.router.navigate(['/cv-upload', this.vacancyId]);
     }
-  }
-
-  selectOption(index: number) {
-    this.selectedOptionIndex = index;
-  }
-
-  beforeUnloadListener = (event: BeforeUnloadEvent) => {
-    event.preventDefault();
-    event.returnValue = '';
-  };
-
-  ngOnDestroy() {
-    if (this.timerSubscription) {
-      this.timerSubscription.unsubscribe();
-    }
-    window.removeEventListener('beforeunload', this.beforeUnloadListener);
   }
 }

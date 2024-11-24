@@ -1,26 +1,29 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Vacancy } from '../models/vacancy.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VacancyService {
-  private vacancies: Vacancy[] = [
-    {
-      id: 1,
-      title: 'Frontend Developer',
-      description: 'We are looking for a skilled Angular developer.',
-    },
-    // Add more vacancies as needed
-  ];
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-
-  getVacancies(): Vacancy[] {
-    return this.vacancies;
+  getVacancies(): Observable<Vacancy[]> {
+    return this.http.get<Vacancy[]>('/assets/mock-vacancies.json').pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching vacancies:', error);
+        return of([]); 
+      })
+    );
   }
 
-  getVacancyById(id: number): Vacancy | undefined {
-    return this.vacancies.find((vacancy) => vacancy.id === id);
+  getVacancyById(id: number): Observable<Vacancy | undefined> {
+    return this.http.get<Vacancy[]>('/assets/mock-vacancies.json').pipe(
+      map((vacancies: Vacancy[]) =>
+        vacancies.find((vacancy) => vacancy.id === id)
+      )
+    );
   }
 }

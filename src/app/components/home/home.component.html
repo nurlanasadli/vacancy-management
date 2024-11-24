@@ -1,0 +1,236 @@
+ <div class="home__container">
+ <div class="slider">
+        <div class="slider-content">
+          <img src="/assets/slider.jpg" alt="Slider" />
+          <div class="slider-overlay">
+            <h1>JOB OPPORTUNITIES</h1>
+          </div>
+        </div>
+      </div>
+      <div class="vacancy-info">
+        <div class="vacancy__section">
+          <div class="vacancy-info-item" (click)="scrollToSection('findJobSection')">
+            <h3>Overview</h3>
+          </div>
+          <div class="vacancy-info-item" (click)="scrollToSection('jobOpportunitiesContainer')">
+            <h3>Local Opportunities</h3>
+          </div>
+          <div class="vacancy-info-item" (click)="scrollToSection('careerPathsContainer')">
+            <h3>Career Paths</h3>
+          </div>
+        </div>
+      </div>
+      
+      <div class="find-job-section__container">
+      <div #findJobSection class="find-job-section">
+        <h2 class="find-job-title">FIND JOB OPENINGS</h2>
+        <p class="find-job-description">
+          Thank you for your interest in employment with the U.S. Mission in Azerbaijan.
+          To view a current list of all available positions at the U.S. Mission in Azerbaijan
+          and to apply online, please visit our
+          <a href="#" class="era-site-link">ERA site</a>.
+        </p>
+        <p class="find-job-note">
+          All applications must be submitted through ERA to be considered.
+        </p>
+      </div>
+    </div>
+  
+      <div class="job-opportunities">
+        <div class="opportunity-item">
+          <div class="opportunity-content">
+            <div class="opportunity-text">
+              <h3 class="opportunity-title">
+                Job Opportunities
+              </h3>
+              <p class="opportunity-description">
+                View a current list of all available positions at the U.S. Mission.
+              </p>
+              <a href="#" class="opportunity-link">Please visit our ERA site <i class="fas fa-arrow-right"></i> </a>
+            </div>
+            <div class="opportunity-image-container">
+              <img src="/assets/hire.jpg" alt="Hire Image 1" class="opportunity-image">
+            </div>
+          </div>
+        </div>
+        <div class="opportunity-item">
+          <div class="opportunity-content">
+            <div class="opportunity-text">
+              <h3 class="opportunity-title">
+                Job Applicant User Guide
+              </h3>
+              <p class="opportunity-description">ERA Applicant User Guide</p>
+              <a href="#" class="opportunity-link">Job Applicant User Guide (PDF 2MB) <i class="fas fa-arrow-right"></i> </a>
+            </div>
+            <div class="opportunity-image-container">
+              <img src="/assets/hire1.jpg" alt="Hire Image 2" class="opportunity-image">
+            </div>
+          </div>
+        </div>
+      </div>    
+  
+  
+      <div #jobOpportunitiesContainer class="job-opportunities-container">
+        <div class="job-opportunities-nav">
+          <h3><span class="dash">—</span> Local Opportunities</h3>
+          <ul>
+            <li
+              [ngClass]="{ 'active-item': selectedSection === 'Family Member Employment' }"
+              (click)="selectSection('Family Member Employment')"
+            >
+              <span class="vertical-line"></span> Family Member Employment
+            </li>
+            <li
+              [ngClass]="{ 'active-item': selectedSection === '8 Qualities of LES' }"
+              (click)="selectSection('8 Qualities of LES')"
+            >
+              <span class="vertical-line"></span> 8 Qualities of LES
+            </li>
+          </ul>
+        </div>
+        <div class="job-opportunities-content">
+          <div *ngIf="selectedSection === 'Family Member Employment'">
+            <h4>Family Member Employment</h4>
+            <p>
+              The Family Liaison Office has a dedicated team of professionals working
+              to expand employment options and information resources for family
+              members, both at home and abroad. Learn more about our programs or
+              begin your employment planning.
+            </p>
+            <a href="#">Read More About Family Member Employment</a>
+          </div>
+          <div *ngIf="selectedSection === '8 Qualities of LES'">
+            <h4>8 Qualities of LES</h4>
+            <p>
+              Overseas employees will demonstrate the following characteristics essential for being a successful member of the United States Embassy, Consulate, or Mission team. The work you’ll do will have an impact on the world. You will be asked to serve at one of any of the more than 270 embassies, consulates and other diplomatic missions in The Americas, Africa, Europe and Eurasia, East Asia and Pacific, Middle East and North Africa, and South Asia. Some of these posts are in difficult and even dangerous environments, but working in them affords great challenges and rewards.
+            </p>
+            <a href="#">Read More About LES Opportunities</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="video-guide">
+        <h3><span class="dash">—</span> How to Apply User Guide Video</h3>
+        <div class="video-container">
+          <iframe width="900" height="550" src="https://www.youtube.com/embed/xbQFE_dtS6g?si=GAwYhJcC1GbUg84z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+  
+      <div #careerPathsContainer class="department-career-paths-container">
+        <div class="career-paths-nav">
+          <h3><span class="dash">—</span> Department Career Paths</h3>
+          <ul>
+            <li
+              [ngClass]="{ 'active-item': selectedCareerPath === 'Internships and Fellowships' }"
+              (click)="selectCareerPath('Internships and Fellowships')"
+            >
+              <span class="vertical-line"></span> Internships and Fellowships
+            </li>
+            <li
+              [ngClass]="{ 'active-item': selectedCareerPath === 'USAID Vacancies' }"
+              (click)="selectCareerPath('USAID Vacancies')"
+            >
+              <span class="vertical-line"></span> USAID Vacancies
+            </li>
+            <li
+              [ngClass]="{ 'active-item': selectedCareerPath === 'DOSCareers Mobile App' }"
+              (click)="selectCareerPath('DOSCareers Mobile App')"
+            >
+              <span class="vertical-line"></span> DOSCareers Mobile App
+            </li>
+            <li
+              [ngClass]="{ 'active-item': selectedCareerPath === 'Diplomats in Residence' }"
+              (click)="selectCareerPath('Diplomats in Residence')"
+            >
+              <span class="vertical-line"></span> Diplomats in Residence
+            </li>
+            <li
+              [ngClass]="{ 'active-item': selectedCareerPath === 'Foreign Service Careers' }"
+              (click)="selectCareerPath('Foreign Service Careers')"
+            >
+              <span class="vertical-line"></span> Foreign Service Careers
+            </li>
+          </ul>
+        </div>
+        <div class="career-paths-content">
+          <div *ngIf="selectedCareerPath === 'Internships and Fellowships'">
+            <h4>Internships and Fellowships</h4>
+            <p>
+              Whether you’re an undergraduate or postgraduate student seeking a substantive internship or fellowship supporting U.S. foreign policy, there’s no limit as to how far our opportunities can take you. You’ll have the opportunity to gain insight into U.S. foreign policy and diplomacy, explore new career avenues, and acquire lifelong skills as you represent America to the world.
+            </p>
+            <a href="#">Learn More About Internships and Fellowships</a>
+          </div>
+          <div *ngIf="selectedCareerPath === 'USAID Vacancies'">
+            <h4>USAID Vacancies</h4>
+            <p>
+              USAID contributes to the social and economic development of Azerbaijan through activities that further develop the agricultural sector and strengthen citizen participation in rural communities. USAID assistance focuses on activities that directly benefit the lives of the Azerbaijani people, create economic opportunities, and expand partnerships to enhance civil society at the grassroots level.
+            </p>
+            <a href="#">Learn More About USAID Vacancies</a>
+          </div>
+          <div *ngIf="selectedCareerPath === 'DOSCareers Mobile App'">
+            <h4>DOSCareers Mobile App</h4>
+            <p>
+              View detailed descriptions of the Foreign Service Officer career tracks, the Foreign Service Specialist career paths, Civil Service opportunities, and the Consular Fellows Program.
+            </p>
+            <a href="#">Get the App</a>
+          </div>
+          <div *ngIf="selectedCareerPath === 'Diplomats in Residence'">
+            <h4>Diplomats in Residence</h4>
+            <p>
+              Diplomats in Residence (DIRs) are career Foreign Service Officers and Specialists located throughout the U.S. who provide guidance and advice on careers, internships and fellowships to students and professionals in the communities they serve. DIRs are available to answer questions and share insight with those interested in Foreign and Civil Service careers, internships and fellowships.
+            </p>
+            <a href="#">Learn More About Diplomats in Residence</a>
+          </div>
+          <div *ngIf="selectedCareerPath === 'Foreign Service Careers'">
+            <h4>Foreign Service Careers</h4>
+            <p>
+              The mission of a U.S. diplomat in the Foreign Service is to promote peace, support prosperity, and protect American citizens while advancing the interests of the U.S. abroad. If you’re passionate about public service and want to represent the U.S. around the world, a challenging and rewarding career is waiting for you. The opportunity to work and experience cultures, customs and people of different nations is truly a career unlike any other.
+  
+  The work you’ll do will have an impact on the world. You will be asked to serve at one of any of the more than 270 embassies, consulates and other diplomatic missions in The Americas, Africa, Europe and Eurasia, East Asia and Pacific, Middle East and North Africa, and South Asia. Some of these posts are in difficult and even dangerous environments, but working in them affords great challenges and rewards.
+            </p>
+            <a href="#">Details on the Foreign Service Officer Test</a>
+          </div>
+        </div>
+      </div>
+      
+      
+  <div class="you-may-be-interested">
+    <h3><span class="dash">—</span> YOU MAY BE INTERESTED</h3>
+    <div class="interest-content">
+      <div class="interest-item">
+        <h4><span class="dash">—</span> News</h4>
+        <p>U.S. Department of State Announces Another Significant Increase in Azerbaijanis Studying in the United States for Second Consecutive Year</p>
+      </div>
+      <div class="interest-item">
+        <h4><span class="dash">—</span> Events</h4>
+        <p>Remarks as Delivered by Senior Advisor John Podesta at COP29</p>
+      </div>
+      <div class="interest-item">
+        <h4><span class="dash">—</span> Events</h4>
+        <p>REMARKS BY JOHN PODESTA COP29 SUMMIT ON METHANE AND NONCO2</p>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-title">U.S. EMBASSY IN AZERBAIJAN</div>
+    <div class="footer-links">
+      <a href="#">White House</a>
+      <a href="#">Department of State</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Social Media Terms of Use</a>
+      <a href="#">Contact us</a>
+      <a href="#">FOIA</a>
+      <a href="#">No Fear Act</a>
+      <a href="#">Accessibility Statement</a>
+    </div>
+    <hr />
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+</div>

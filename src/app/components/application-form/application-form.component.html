@@ -1,32 +1,38 @@
 <form nz-form [formGroup]="applicationForm" (ngSubmit)="submitForm()">
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" nzRequired>Adı və Soyadı</nz-form-label>
-      <nz-form-control [nzSm]="14" nzErrorTip="Bu sahə məcburidir">
-        <input nz-input formControlName="name" />
-      </nz-form-control>
-    </nz-form-item>
-  
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" nzRequired>Elektron poçt ünvanı</nz-form-label>
-      <nz-form-control
-        [nzSm]="14"
-        nzErrorTip="Düzgün e-poçt ünvanı daxil edin"
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired>Name and Surname</nz-form-label>
+    <nz-form-control [nzSm]="14" nzErrorTip="This field is required">
+      <input nz-input formControlName="name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired>Email address</nz-form-label>
+    <nz-form-control [nzSm]="14" nzErrorTip="Enter a valid email address">
+      <input nz-input formControlName="email" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" nzRequired>Phone number</nz-form-label>
+    <nz-form-control [nzSm]="14" nzErrorTip="This field is required">
+      <input nz-input formControlName="phone" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSm]="14" [nzOffset]="6">
+      <div class="button-group">
+        <button nz-button nzType="primary" class="submit-button">Apply</button>
+        <button
+        nz-button
+        nzType="default"
+        (click)="navigateToVacancies()"
+        class="cancel-button"
       >
-        <input nz-input formControlName="email" />
-      </nz-form-control>
-    </nz-form-item>
-  
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" nzRequired>Telefon nömrəsi</nz-form-label>
-      <nz-form-control [nzSm]="14" nzErrorTip="Bu sahə məcburidir">
-        <input nz-input formControlName="phone" />
-      </nz-form-control>
-    </nz-form-item>
-  
-    <nz-form-item>
-      <nz-form-control [nzSm]="14" [nzOffset]="6">
-        <button nz-button nzType="primary">Müraciət et</button>
-      </nz-form-control>
-    </nz-form-item>
-  </form>
-  
+        Cancel
+      </button>
+            </div>
+    </nz-form-control>
+  </nz-form-item>
+</form>

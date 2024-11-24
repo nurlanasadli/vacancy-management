@@ -1,0 +1,110 @@
+.cv-upload-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f5f5f5; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+  }
+  
+  .cv-upload-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(39, 170, 225); 
+    margin-bottom: 16px;
+  }
+  
+  .cv-upload-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .upload-section {
+    margin-bottom: 20px;
+  }
+  
+  .upload-section button {
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: rgb(39, 170, 225); 
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .upload-section button:hover {
+    background-color: #062d49; 
+  }
+  
+  .upload-button {
+    background-color: rgb(39, 170, 225);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+  }
+  
+  .upload-button:hover {
+    background-color: #062d49; 
+    transform: translateY(-2px);
+  }
+  
+  .upload-button:active {
+    transform: translateY(0);
+  }
+  
+@media (max-width: 768px) {
+    .cv-upload-container {
+      max-width: 90%; 
+      padding: 20px;
+    }
+  
+    .cv-upload-container h2 {
+      font-size: 20px; 
+    }
+  
+    .cv-upload-container p {
+      font-size: 14px; 
+    }
+  
+    .upload-section button,
+    .upload-button {
+      font-size: 14px;
+      padding: 8px 12px; 
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .cv-upload-container {
+      padding: 16px; 
+    }
+  
+    .cv-upload-container h2 {
+      font-size: 18px; 
+    }
+  
+    .cv-upload-container p {
+      font-size: 13px; 
+    }
+  
+    .upload-section button,
+    .upload-button {
+      font-size: 12px; 
+      padding: 8px 10px; 
+    }
+  
+    .upload-button {
+      width: 100%; 
+      margin-top: 15px;
+    }
+  
+    .upload-section .ant-upload-list {
+      font-size: 12px; 
+    }
+  }
+  

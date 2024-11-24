@@ -2,17 +2,16 @@
     <h2>Sual {{ currentQuestionIndex + 1 }} / {{ questions.length }}</h2>
     <p>{{ currentQuestion.question }}</p>
     <ul>
-      <li
-        *ngFor="let option of currentQuestion.options; let i = index"
-        [ngClass]="{ selected: selectedOptionIndex === i }"
-        (click)="selectOption(i)"
-      >
-        {{ option }}
-      </li>
-    </ul>
-    <p>Zaman: {{ timeLeft }} saniyə</p>
+        <li
+          *ngFor="let option of currentQuestion.options; let i = index"
+          [ngClass]="{ selected: selectedOptionIndex === i }"
+          (click)="selectOption(i)"
+        >
+          {{ option }}
+        </li>
+      </ul>      
+    <p>Time: {{ timeLeft }} seconds</p>
     <button nz-button nzType="primary" (click)="submitAnswer()">
-      Növbəti
+      Next
     </button>
   </div>
-  

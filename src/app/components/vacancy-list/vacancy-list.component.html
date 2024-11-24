@@ -1,19 +1,21 @@
-<nz-list [nzDataSource]="vacancies" [nzRenderItem]="item">
+<div class="vacancy-list-container">
+  <nz-list [nzDataSource]="vacancies" [nzRenderItem]="item" class="vacancy-list">
     <ng-template #item let-vacancy>
-      <nz-list-item>
+      <nz-list-item class="vacancy-item">
         <nz-list-item-meta
-          nzTitle="{{ vacancy.title }}"
-          nzDescription="{{ vacancy.description }}"
+          class="vacancy-meta"
+          [nzTitle]="vacancy.title"
+          [nzDescription]="vacancy.description"
         ></nz-list-item-meta>
         <button
           nz-button
           nzType="primary"
           (click)="apply(vacancy.id)"
-          style="float: right"
+          class="apply-button"
         >
-          Müraciət et
+         Apply
         </button>
       </nz-list-item>
     </ng-template>
   </nz-list>
-  
+</div>

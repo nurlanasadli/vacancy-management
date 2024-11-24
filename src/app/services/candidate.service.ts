@@ -8,11 +8,14 @@ import { TestService } from './test.service';
 export class CandidateService {
   private candidate: Candidate | null = null;
   private score: number = 0;
+  private percentage: number = 0; 
+  private vacancyId: number = 0; 
 
   constructor(private testService: TestService) {}
 
-  setCandidate(candidate: Candidate) {
+  setCandidate(candidate: Candidate, vacancyId: number) { 
     this.candidate = candidate;
+    this.vacancyId = vacancyId;
   }
 
   getCandidate(): Candidate | null {
@@ -20,16 +23,24 @@ export class CandidateService {
   }
 
   evaluateAnswers(answers: { [questionId: number]: number }) {
-    const questions = this.testService.getTestQuestions();
+    const correctAnswers = this.testService.getTestQuestions(this.vacancyId); 
     let score = 0;
 
-    questions.forEach((question) => {
+    correctAnswers.forEach((question) => {
       if (answers[question.id] === question.correctOptionIndex) {
-        score += 1;
+        score++;
       }
     });
 
     this.score = score;
+    this.percentage = (score / correctAnswers.length) * 100;
+  }
+
+  getTestResults() {
+    return {
+      score: this.score,
+      percentage: this.percentage,
+    };
   }
 
   getScore(): number {
@@ -37,7 +48,6 @@ export class CandidateService {
   }
 
   getPercentage(): number {
-    const totalQuestions = this.testService.getTestQuestions().length;
-    return (this.score / totalQuestions) * 100;
+    return this.percentage;
   }
 }

@@ -1,0 +1,124 @@
+.vacancy-list-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+    .vacancy-list {
+    background-color: #ffffff; 
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .vacancy-item {
+    padding: 20px;
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    margin-top: 10px;
+  }
+  
+  .vacancy-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: transparent; 
+  }
+  
+  .vacancy-meta {
+    color: #062d49; 
+  }
+  
+  .vacancy-meta .ant-list-item-meta-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #062d49; 
+    margin-bottom: 8px;
+  }
+  
+  .vacancy-meta .ant-list-item-meta-description {
+    font-size: 14px;
+    color: #062d49; 
+  }
+  
+  .apply-button {
+    background-color: rgb(39,170,225); 
+    color: #ffffff; 
+    border: none;
+    border-radius: 4px;
+    position: absolute;
+    right: 20px;
+  }
+  
+  .apply-button:hover {
+    background-color: #062d49; 
+    color: #ffffff;
+  }
+  
+
+@media (max-width: 1024px) {
+  .vacancy-item {
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 8px; 
+    padding: 16px; 
+  }
+
+  .apply-button {
+    position: static; 
+    margin-top: 10px; 
+    align-self: flex-start; 
+  }
+
+  .vacancy-meta .ant-list-item-meta-title {
+    font-size: 16px; 
+  }
+
+  .vacancy-meta .ant-list-item-meta-description {
+    font-size: 13px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .vacancy-list-container {
+    padding: 10px; 
+  }
+
+  .vacancy-item {
+    padding: 12px; 
+    border: 1px solid #e0e0e0; 
+  }
+
+  .apply-button {
+    font-size: 12px; 
+    padding: 8px 16px; 
+    width: 100%; 
+    text-align: center; 
+  }
+
+  .vacancy-meta .ant-list-item-meta-title {
+    font-size: 14px; 
+  }
+
+  .vacancy-meta .ant-list-item-meta-description {
+    font-size: 12px; 
+  }
+}
+
+@media (max-width: 576px) {
+  .vacancy-item {
+    padding: 10px; 
+  }
+
+  .vacancy-meta .ant-list-item-meta-title {
+    font-size: 13px; 
+  }
+
+  .vacancy-meta .ant-list-item-meta-description {
+    font-size: 11px; 
+  }
+
+  .apply-button {
+    font-size: 10px; 
+    padding: 6px 12px; 
+  }
+}

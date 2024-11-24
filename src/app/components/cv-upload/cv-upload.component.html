@@ -1,22 +1,27 @@
-<nz-upload
-  [nzBeforeUpload]="beforeUpload"
-  [nzFileList]="fileList"
-  [nzShowUploadList]="true"
-  nzAccept=".pdf,.docx"
-  [nzDisabled]="uploading"
->
-  <button nz-button>
-    <i nz-icon nzType="upload"></i> Fayl seçin
-  </button>
-</nz-upload>
+<div class="cv-upload-container">
+  <h2>CV Upload</h2>
+  <p>Please upload your CV. Only files in PDF or DOCX format are accepted.</p>
+  
+  <nz-upload
+    [nzBeforeUpload]="beforeUpload"
+    [nzFileList]="fileList"
+    [nzShowUploadList]="true"
+    nzAccept=".pdf,.docx"
+    [nzDisabled]="uploading"
+    class="upload-section"
+  >
+    <button nz-button>
+      <i nz-icon nzType="upload"></i> Select file
+    </button>
+  </nz-upload>
 
-<button
-  nz-button
-  nzType="primary"
-  [nzLoading]="uploading"
-  (click)="handleUpload()"
-  style="margin-top: 16px"
->
-  CV-ni Yüklə
-</button>
-    
+  <button
+    nz-button
+    nzType="primary"
+    [nzLoading]="uploading"
+    (click)="handleUpload()"
+    class="upload-button"
+  >
+   Upload your CV
+  </button>
+</div>

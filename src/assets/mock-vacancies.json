@@ -1,0 +1,12 @@
+[
+    { "id": 1, "title": "Frontend Developer", "description": "Angular-focused role." },
+    { "id": 2, "title": "Backend Developer", "description": "Node.js and Python." },
+    { "id": 3, "title": "Data Analyst", "description": "Data visualization skills." },
+    { "id": 4, "title": "Project Manager", "description": "Agile and Scrum expertise." },
+    { "id": 5, "title": "DevOps Engineer", "description": "Cloud and CI/CD tools." },
+    { "id": 6, "title": "Mobile Developer", "description": "iOS and Android apps." },
+    { "id": 7, "title": "UI/UX Designer", "description": "Prototyping and design." },
+    { "id": 8, "title": "QA Engineer", "description": "Automation testing tools." },
+    { "id": 9, "title": "Cybersecurity Specialist", "description": "Penetration testing." },
+    { "id": 10, "title": "Business Analyst", "description": "Stakeholder management." }
+]

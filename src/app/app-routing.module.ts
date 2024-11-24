@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'test/:id', component: TestQuestionsComponent },
   { path: 'cv-upload/:id', component: CvUploadComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'vacancies', component: VacancyListComponent },
   { path: '**', redirectTo: '' },
 ];
 

@@ -47,7 +47,6 @@ export class CvUploadComponent {
 
     this.uploading = true;
 
-    // Simulate uploading process
     setTimeout(() => {
       this.uploading = false;
       this.msg.success('CV uğurla yükləndi!');
